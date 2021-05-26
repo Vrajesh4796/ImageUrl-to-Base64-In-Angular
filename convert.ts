@@ -4,14 +4,15 @@ export class ConvertComponent implements OnInit {
 
     constructor(){}
      ngOnInit() {
+        //Pass Image Url
         this.getBase64ImageFromUrl('Your Image Url')
           .then(result => {
-              this.imageChangedEvent = dataurl;
-              this.imageSelected = true;
+              console.log("result ============>>>>>",result); //Get Base64 Url
           })
           .catch(err => console.error(err));
      }
-
+    
+    //Convert Url To Base64
     getBase64ImageFromUrl(imageUrl) {
         var res = await fetch(imageUrl);
         var blob = await res.blob();
